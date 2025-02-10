@@ -34,38 +34,45 @@ const Login = () => {
     };
 
     return (
-        <div className="container mt-5">
-            <h2 className="text-center mb-4">Login</h2>
-            {error && <p className="text-danger text-center">{error}</p>}
-            <form onSubmit={handleLogin} className="w-50 mx-auto p-4 border rounded shadow">
-                <div className="mb-3">
-                    <label htmlFor="email" className="form-label">Email</label>
-                    <input 
-                        type="email" 
-                        className="form-control" 
-                        id="email" 
-                        placeholder="Enter your email" 
-                        value={email} 
-                        onChange={(e) => setEmail(e.target.value)} 
-                        required 
-                    />
+        <div className="d-flex justify-content-center align-items-center vh-100">
+            <div className="card shadow-lg p-4" style={{ maxWidth: "400px", width: "100%" }}>
+                <div className="card-body">
+                    <h2 className="text-center mb-4 text-primary">
+                        <i className="bi bi-person-circle"></i> Login
+                    </h2>
+                    {error && <div className="alert alert-danger text-center">{error}</div>}
+                    <form onSubmit={handleLogin}>
+                        <div className="mb-3">
+                            <label htmlFor="email" className="form-label">Email</label>
+                            <input 
+                                type="email" 
+                                className="form-control" 
+                                id="email" 
+                                placeholder="Enter your email" 
+                                value={email} 
+                                onChange={(e) => setEmail(e.target.value)} 
+                                required 
+                            />
+                        </div>
+                        <div className="mb-3">
+                            <label htmlFor="password" className="form-label">Password</label>
+                            <input 
+                                type="password" 
+                                className="form-control" 
+                                id="password" 
+                                placeholder="Enter your password" 
+                                value={password} 
+                                onChange={(e) => setPassword(e.target.value)} 
+                                required 
+                            />
+                        </div>
+                        <button type="submit" className="btn btn-primary w-100">
+                            <i className="bi bi-box-arrow-in-right"></i> Login
+                        </button>
+                    </form>
                 </div>
-                <div className="mb-3">
-                    <label htmlFor="password" className="form-label">Password</label>
-                    <input 
-                        type="password" 
-                        className="form-control" 
-                        id="password" 
-                        placeholder="Enter your password" 
-                        value={password} 
-                        onChange={(e) => setPassword(e.target.value)} 
-                        required 
-                    />
-                </div>
-                <button type="submit" className="btn btn-primary w-100">Login</button>
-            </form>
+            </div>
         </div>
-
     );
 };
 
